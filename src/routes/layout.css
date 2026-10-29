@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+button:not(:disabled),
+[role='button']:not([aria-disabled='true']),
+a,
+select,
+summary {
+	cursor: pointer;
+}
+
+button:disabled,
+[role='button'][aria-disabled='true'] {
+	cursor: not-allowed;
+}
