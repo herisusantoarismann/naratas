@@ -2,6 +2,7 @@
 	import './layout.css';
 	import type { Snippet } from 'svelte';
 	import { page } from '$app/state';
+	import Logo from '$lib/components/ui/Logo.svelte';
 
 	interface Props {
 		children: Snippet;
@@ -24,21 +25,8 @@
 	>
 		<div class="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
 			<div class="flex items-center gap-6">
-				<a
-					href="/"
-					class="flex items-center gap-2.5 font-bold tracking-tight text-zinc-900 dark:text-zinc-100"
-				>
-					<div
-						class="flex h-7 w-7 items-center justify-center rounded-lg bg-zinc-900 text-xs font-black text-white shadow-sm dark:bg-zinc-100 dark:text-zinc-900"
-					>
-						NT
-					</div>
-					<span class="text-sm font-semibold">Naratas</span>
-					<span
-						class="hidden rounded-full bg-zinc-100 px-2 py-0.5 text-[10px] font-medium text-zinc-600 sm:inline-block dark:bg-zinc-800 dark:text-zinc-400"
-					>
-						v1.0
-					</span>
+				<a href="/" aria-label="Naratas Home" class="transition-opacity hover:opacity-90">
+					<Logo size="sm" variant="full" />
 				</a>
 
 				<nav aria-label="Main Navigation" class="flex items-center gap-1">
@@ -59,9 +47,9 @@
 			<div class="flex items-center gap-3">
 				<a
 					href="/editor"
-					class="hidden items-center gap-1.5 rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-medium text-white shadow-xs transition hover:bg-zinc-800 sm:inline-flex dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+					class="hidden items-center gap-1.5 rounded-lg bg-zinc-900 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xs transition hover:bg-zinc-800 sm:inline-flex dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
 				>
-					Open Editor
+					Buka Editor
 				</a>
 			</div>
 		</div>
@@ -77,7 +65,10 @@
 		<div
 			class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 sm:flex-row sm:px-6"
 		>
-			<p>© 2026 Naratas — Local-First Block Document Engine. Open Source MIT.</p>
+			<div class="flex items-center gap-2">
+				<Logo size={18} variant="mark" />
+				<p>© 2026 Naratas — Local-First Block Document Engine. Open Source MIT.</p>
+			</div>
 			<div class="flex items-center gap-4">
 				<a href="/templates" class="hover:underline">Templates</a>
 				<a href="/editor" class="hover:underline">Editor</a>
