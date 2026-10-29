@@ -64,6 +64,15 @@
 
 <svelte:window onkeydown={handleWindowKeydown} />
 
+<svelte:head>
+	<title>{titleInput || 'Untitled Document'} — Naratas Editor</title>
+	<meta
+		name="description"
+		content="Editor dokumen blok berbasis Svelte 5 Runes. Format bebas dengan slash commands dan simpan ke Markdown."
+	/>
+	<meta name="robots" content="noindex, follow" />
+</svelte:head>
+
 <div class="relative mx-auto min-h-screen max-w-4xl px-4 py-8 sm:px-6">
 	<!-- Modular Editor Toolbar -->
 	<EditorToolbar

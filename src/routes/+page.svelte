@@ -28,14 +28,24 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Naratas Workspace — Editor Dokumen Blok Cepat & Privat</title>
+	<meta
+		name="description"
+		content="Naratas adalah editor dokumen blok super cepat berbasis Svelte 5. Privasi 100% lokal di browser, tanpa lag, slash commands instan, dan ekspor Markdown."
+	/>
+	<link rel="canonical" href="https://naratas.dev/" />
+</svelte:head>
+
 <div class="mx-auto max-w-5xl px-4 py-10 sm:px-6">
-	<div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+	<!-- Hero Header with CRO Trust Signals -->
+	<div class="mb-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
 		<div>
-			<div class="mb-1 flex items-center gap-2">
+			<div class="mb-2 flex items-center gap-2">
 				<span class="inline-block h-2 w-2 rounded-full bg-emerald-500"></span>
-				<span class="text-xs font-semibold tracking-wider text-zinc-500 uppercase"
-					>Local Workspace</span
-				>
+				<span class="text-[11px] font-semibold tracking-wider text-zinc-500 uppercase">
+					Local-First • Zero Cloud Lag
+				</span>
 			</div>
 			<h1
 				aria-label="BlockCraft Workspace"
@@ -44,22 +54,23 @@
 				Naratas Workspace
 			</h1>
 			<p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-				High-performance modular block document engine crafted with Svelte 5 Runes.
+				Mesin editor dokumen blok berkecepatan tinggi dengan Svelte 5 Runes. Privasi penuh di
+				browser Anda.
 			</p>
 		</div>
 
-		<div class="flex items-center gap-3">
+		<div class="flex flex-wrap items-center gap-3">
 			<a
 				href="/templates"
-				class="inline-flex items-center justify-center rounded-lg border border-zinc-200 bg-white px-4 py-2 text-xs font-medium text-zinc-800 shadow-2xs hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800"
+				class="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-xs font-semibold text-zinc-800 shadow-2xs transition hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:bg-zinc-800"
 			>
-				Explore Templates
+				Jelajahi 26+ Template
 			</a>
 			<a
 				href="/editor"
-				class="inline-flex items-center justify-center gap-2 rounded-lg bg-zinc-900 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+				class="inline-flex items-center justify-center gap-2 rounded-xl bg-zinc-900 px-4 py-2.5 text-xs font-semibold text-white shadow-xs transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
 			>
-				<span>Open Document</span>
+				<span>Buka Editor</span>
 				<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path
 						stroke-linecap="round"
@@ -72,53 +83,59 @@
 		</div>
 	</div>
 
+	<!-- Metrics Cards -->
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
 		<div
 			class="rounded-xl border border-zinc-200/80 bg-white p-5 shadow-2xs dark:border-zinc-800 dark:bg-zinc-900"
 		>
-			<div class="text-xs font-medium text-zinc-500 dark:text-zinc-400">Total Blocks</div>
+			<div class="text-xs font-medium text-zinc-500 dark:text-zinc-400">Total Blok Aktif</div>
 			<div
 				data-testid="overview-total-blocks"
 				class="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100"
 			>
 				{totalBlocks}
 			</div>
-			<p class="mt-1 text-[11px] text-zinc-400">Active nodes in document tree</p>
+			<p class="mt-1 text-[11px] text-zinc-400">Node dokumen dalam memori</p>
 		</div>
 
 		<div
 			class="rounded-xl border border-zinc-200/80 bg-white p-5 shadow-2xs dark:border-zinc-800 dark:bg-zinc-900"
 		>
-			<div class="text-xs font-medium text-zinc-500 dark:text-zinc-400">Word Count</div>
+			<div class="text-xs font-medium text-zinc-500 dark:text-zinc-400">Jumlah Kata</div>
 			<div
 				data-testid="overview-word-count"
 				class="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100"
 			>
 				{wordCount}
 			</div>
-			<p class="mt-1 text-[11px] text-zinc-400">Calculated across paragraph & content</p>
+			<p class="mt-1 text-[11px] text-zinc-400">Total kata terhitung otomatis</p>
 		</div>
 
 		<div
 			class="rounded-xl border border-zinc-200/80 bg-white p-5 shadow-2xs dark:border-zinc-800 dark:bg-zinc-900"
 		>
-			<div class="text-xs font-medium text-zinc-500 dark:text-zinc-400">Current Document</div>
+			<div class="text-xs font-medium text-zinc-500 dark:text-zinc-400">Dokumen Aktif</div>
 			<div class="mt-2 truncate text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
 				{docTitle}
 			</div>
-			<p class="mt-1 text-[11px] text-emerald-600 dark:text-emerald-400">Synced to LocalStorage</p>
+			<p class="mt-1 text-[11px] text-emerald-600 dark:text-emerald-400">
+				Tersinkronisasi otomatis
+			</p>
 		</div>
 	</div>
 
+	<!-- Quick Shortcuts -->
 	<div
 		class="mt-8 rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
 	>
-		<h2 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Quick Keyboard Shortcuts</h2>
+		<h2 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+			Pintasan Keyboard Produktif
+		</h2>
 		<div class="mt-4 grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
 			<div
 				class="flex items-center justify-between rounded-lg bg-zinc-50 px-3 py-2 dark:bg-zinc-800/60"
 			>
-				<span class="text-zinc-600 dark:text-zinc-400">Slash Command Menu</span>
+				<span class="text-zinc-600 dark:text-zinc-400">Menu Slash Command</span>
 				<kbd
 					class="rounded border border-zinc-200 bg-white px-2 py-0.5 font-mono text-[11px] font-semibold text-zinc-700 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
 					>/</kbd
@@ -127,7 +144,16 @@
 			<div
 				class="flex items-center justify-between rounded-lg bg-zinc-50 px-3 py-2 dark:bg-zinc-800/60"
 			>
-				<span class="text-zinc-600 dark:text-zinc-400">Split Block (New Paragraph)</span>
+				<span class="text-zinc-600 dark:text-zinc-400">Unduh Dokumen .md</span>
+				<kbd
+					class="rounded border border-zinc-200 bg-white px-2 py-0.5 font-mono text-[11px] font-semibold text-zinc-700 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+					>Ctrl + S</kbd
+				>
+			</div>
+			<div
+				class="flex items-center justify-between rounded-lg bg-zinc-50 px-3 py-2 dark:bg-zinc-800/60"
+			>
+				<span class="text-zinc-600 dark:text-zinc-400">Pecah Blok (Baris Baru)</span>
 				<kbd
 					class="rounded border border-zinc-200 bg-white px-2 py-0.5 font-mono text-[11px] font-semibold text-zinc-700 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
 					>Enter</kbd
@@ -136,26 +162,11 @@
 			<div
 				class="flex items-center justify-between rounded-lg bg-zinc-50 px-3 py-2 dark:bg-zinc-800/60"
 			>
-				<span class="text-zinc-600 dark:text-zinc-400">Merge with Previous Block</span>
+				<span class="text-zinc-600 dark:text-zinc-400">Gabung ke Blok Sebelumnya</span>
 				<kbd
 					class="rounded border border-zinc-200 bg-white px-2 py-0.5 font-mono text-[11px] font-semibold text-zinc-700 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
 					>Backspace</kbd
 				>
-			</div>
-			<div
-				class="flex items-center justify-between rounded-lg bg-zinc-50 px-3 py-2 dark:bg-zinc-800/60"
-			>
-				<span class="text-zinc-600 dark:text-zinc-400">Undo & Redo Action</span>
-				<div class="flex gap-1">
-					<kbd
-						class="rounded border border-zinc-200 bg-white px-2 py-0.5 font-mono text-[11px] font-semibold text-zinc-700 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-						>Ctrl+Z</kbd
-					>
-					<kbd
-						class="rounded border border-zinc-200 bg-white px-2 py-0.5 font-mono text-[11px] font-semibold text-zinc-700 shadow-2xs dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-						>Ctrl+Y</kbd
-					>
-				</div>
 			</div>
 		</div>
 	</div>

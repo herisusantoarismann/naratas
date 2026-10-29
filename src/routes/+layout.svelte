@@ -70,4 +70,24 @@
 	<main class="flex-1">
 		{@render children()}
 	</main>
+
+	<footer
+		class="border-t border-zinc-200/80 bg-white/60 py-6 text-center text-xs text-zinc-500 backdrop-blur-xs dark:border-zinc-800/80 dark:bg-zinc-900/60 dark:text-zinc-400"
+	>
+		<div
+			class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 sm:flex-row sm:px-6"
+		>
+			<p>© 2026 Naratas — Local-First Block Document Engine. Open Source MIT.</p>
+			<div class="flex items-center gap-4">
+				<a href="/templates" class="hover:underline">Templates</a>
+				<a href="/editor" class="hover:underline">Editor</a>
+				<a
+					href="https://github.com/herisusantoarismann/naratas"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="hover:underline">GitHub</a
+				>
+			</div>
+		</div>
+	</footer>
 </div>

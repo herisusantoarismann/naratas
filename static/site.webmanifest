@@ -1,0 +1,16 @@
+{
+  "name": "Naratas — Local-First Block Document Engine",
+  "short_name": "Naratas",
+  "description": "High-performance modular block document engine crafted with Svelte 5 Runes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#18181b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

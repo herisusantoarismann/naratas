@@ -56,7 +56,12 @@
 </script>
 
 <svelte:head>
-	<title>{title} — Naratas</title>
+	<title>{title} — Naratas Shared Document</title>
+	<meta
+		name="description"
+		content="Baca dan salin dokumen bersama '{title}' yang dibuat di Naratas Document Engine."
+	/>
+	<meta name="robots" content="noindex, follow" />
 </svelte:head>
 
 <div class="mx-auto min-h-screen max-w-4xl px-4 py-8 sm:px-6">

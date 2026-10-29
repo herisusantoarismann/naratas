@@ -11,6 +11,26 @@ export interface TemplateItem {
 	blocks: BlockObject[];
 }
 
+export function hasExistingEditorContent(): boolean {
+	if (typeof window === 'undefined' || !window.localStorage) return false;
+	try {
+		const raw = window.localStorage.getItem('blockcraft_doc_v1');
+		if (!raw) return false;
+		const data = JSON.parse(raw);
+		if (!data) return false;
+		const hasTitle = Boolean(
+			data.title && data.title !== 'Untitled Document' && data.title.trim().length > 0
+		);
+		const hasContent =
+			Array.isArray(data.blocks) &&
+			data.blocks.some((b: { content?: string }) => b.content && b.content.trim().length > 0);
+		const hasMultiple = Array.isArray(data.blocks) && data.blocks.length > 1;
+		return hasTitle || hasContent || hasMultiple;
+	} catch {
+		return false;
+	}
+}
+
 export const TEMPLATES: TemplateItem[] = [
 	// 1. Engineering RFC (Preserved for Playwright E2E compatibility)
 	{

@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Modal from '$lib/components/ui/Modal.svelte';
-	import { TEMPLATES, type TemplateItem } from '$lib/features/templates/templateList';
+	import {
+		TEMPLATES,
+		hasExistingEditorContent,
+		type TemplateItem
+	} from '$lib/features/templates/templateList';
 
 	let searchQuery = $state('');
 	let selectedCategory = $state<'All' | 'Engineering' | 'Product' | 'Docs' | 'Workflow'>('All');
@@ -19,26 +23,6 @@
 			return matchesCategory && matchesSearch;
 		})
 	);
-
-	function hasExistingEditorContent(): boolean {
-		if (typeof window === 'undefined' || !window.localStorage) return false;
-		try {
-			const raw = window.localStorage.getItem('blockcraft_doc_v1');
-			if (!raw) return false;
-			const data = JSON.parse(raw);
-			if (!data) return false;
-			const hasTitle = Boolean(
-				data.title && data.title !== 'Untitled Document' && data.title.trim().length > 0
-			);
-			const hasContent =
-				Array.isArray(data.blocks) &&
-				data.blocks.some((b: { content?: string }) => b.content && b.content.trim().length > 0);
-			const hasMultiple = Array.isArray(data.blocks) && data.blocks.length > 1;
-			return hasTitle || hasContent || hasMultiple;
-		} catch {
-			return false;
-		}
-	}
 
 	function handleSelectTemplate(template: TemplateItem) {
 		if (hasExistingEditorContent()) {
@@ -60,7 +44,12 @@
 </script>
 
 <svelte:head>
-	<title>Starter Templates — Naratas</title>
+	<title>26+ Starter Templates Dokumen & Markdown — Naratas</title>
+	<meta
+		name="description"
+		content="Koleksi 26+ template dokumen profesional untuk rekayasa perangkat lunak, PRD, RFC, sprint retrospective, dan pedoman open source."
+	/>
+	<link rel="canonical" href="https://naratas.dev/templates" />
 </svelte:head>
 
 <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
